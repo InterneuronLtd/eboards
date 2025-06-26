@@ -1,0 +1,673 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E16F4010-FEAF-4309-83B9-5DB9EB020F56}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EBoards</RootNamespace>
+    <AssemblyName>EBoards</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IdentityModel, Version=3.10.4.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.3.10.4\lib\net452\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.3.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.3.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.3.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.2\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.3.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap33.min.css" />
+    <Content Include="Content\summernote\summernote-bs4.css" />
+    <Content Include="Content\summernote\summernote-bs4.js" />
+    <Content Include="Content\summernote\summernote-bs4.min.js" />
+    <Content Include="Content\summernote\summernote-lite.css" />
+    <Content Include="Content\summernote\summernote-lite.js" />
+    <Content Include="Content\summernote\summernote-lite.min.js" />
+    <Content Include="Content\summernote\summernote.css" />
+    <Content Include="Content\summernote\summernote.js" />
+    <Content Include="Content\summernote\summernote.min.js" />
+    <Content Include="css\custom.css" />
+    <Content Include="Global.asax" />
+    <Content Include="locatorcallback.aspx" />
+    <Content Include="callback.aspx" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="img\IMA Logo.pdf" />
+    <Content Include="img\inPatientsIcon.pdf" />
+    <Content Include="img\LocatorIcon.pdf" />
+    <Content Include="img\LocatorLogo.pdf" />
+    <Content Include="Content\summernote\font\summernote.eot" />
+    <Content Include="Content\summernote\font\summernote.ttf" />
+    <Content Include="Content\summernote\font\summernote.woff" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Content\bootstrap-editable\css\bootstrap-editable.css" />
+    <Content Include="Content\bootstrap-editable\img\clear.png" />
+    <Content Include="Content\bootstrap-editable\img\loading.gif" />
+    <Content Include="Content\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="Content\bootstrap3-editable\img\clear.png" />
+    <Content Include="Content\bootstrap3-editable\img\loading.gif" />
+    <Content Include="Content\css\select2-spinner.gif" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.png" />
+    <Content Include="Content\css\select2x2.png" />
+    <Content Include="Content\datetimepicker.css" />
+    <Content Include="Content\easyautocomplete\easy-autocomplete.css" />
+    <Content Include="Content\easyautocomplete\easy-autocomplete.min.css" />
+    <Content Include="Content\easyautocomplete\easy-autocomplete.themes.css" />
+    <Content Include="Content\easyautocomplete\easy-autocomplete.themes.min.css" />
+    <Content Include="Content\easyautocomplete\jquery.easy-autocomplete.js" />
+    <Content Include="Content\easyautocomplete\jquery.easy-autocomplete.min.js" />
+    <Content Include="Content\inputs-ext\address\address.css" />
+    <Content Include="Content\inputs-ext\typeaheadjs\lib\typeahead.js-bootstrap.css" />
+    <Content Include="Content\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.css" />
+    <Content Include="Content\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysiwyg-color.css" />
+    <Content Include="Content\jquery-editable\css\jquery-editable.css" />
+    <Content Include="Content\jquery-editable\img\clear.png" />
+    <Content Include="Content\jquery-editable\img\loading.gif" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\animated-overlay.gif" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Content\jquery-editable\jquery-ui-datepicker\css\redmond\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Content\jqueryui-editable\css\jqueryui-editable.css" />
+    <Content Include="Content\jqueryui-editable\img\clear.png" />
+    <Content Include="Content\jqueryui-editable\img\loading.gif" />
+    <Content Include="Content\pickadate\legacy.js" />
+    <Content Include="Content\pickadate\picker.date.js" />
+    <Content Include="Content\pickadate\picker.js" />
+    <Content Include="Content\pickadate\picker.time.js" />
+    <Content Include="Content\pickadate\themes\classic.css" />
+    <Content Include="Content\pickadate\themes\classic.date.css" />
+    <Content Include="Content\pickadate\themes\classic.time.css" />
+    <Content Include="Content\pickadate\themes\default.css" />
+    <Content Include="Content\pickadate\themes\default.date.css" />
+    <Content Include="Content\pickadate\themes\default.time.css" />
+    <Content Include="Content\pickadate\themes\rtl.css" />
+    <Content Include="Content\typeahead.js-bootstrap.css" />
+    <Content Include="css\bootstrap-editable.css" />
+    <Content Include="css\bootstrap4forie.css" />
+    <Content Include="css\ima.css" />
+    <Content Include="css\spinner.css" />
+    <Content Include="DataServices.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="DemoHomepage.aspx" />
+    <Content Include="DynamicBedBoard.aspx" />
+    <Content Include="DynamicLocatorBoard.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="favicon.png" />
+    <Content Include="GlobalSettings.js" />
+    <Content Include="IMA.aspx" />
+    <Content Include="IMADemo.aspx" />
+    <Content Include="IMAListViewModel.js" />
+    <Content Include="img\5.gif" />
+    <Content Include="img\ajax-loader.gif" />
+    <Content Include="img\ajax_loader.gif" />
+    <Content Include="img\Blue OT Faded.png" />
+    <Content Include="img\Blue OT.png" />
+    <Content Include="img\check_circle_correct_mark_success_tick_yes_icon_128.png" />
+    <Content Include="img\check_circle_correct_mark_success_tick_yes_icon_64.png" />
+    <Content Include="img\circle_close_cross_delete_incorrect_invalid_x_icon_64.png" />
+    <Content Include="img\clear.png" />
+    <Content Include="img\Green OT Faded.png" />
+    <Content Include="img\Green OT.png" />
+    <Content Include="img\iBoards.png" />
+    <Content Include="img\IMA Logo%4010x.png" />
+    <Content Include="img\IMA Logo%402x.png" />
+    <Content Include="img\IMA Logo%403x.png" />
+    <Content Include="img\IMA Logo.png" />
+    <Content Include="img\IMALogo.png" />
+    <Content Include="img\inPatientsIcon%4010x.png" />
+    <Content Include="img\inPatientsIcon%402x.png" />
+    <Content Include="img\inPatientsIcon%403x.png" />
+    <Content Include="img\inPatientsIcon.png" />
+    <Content Include="img\InterneuronLogo.png" />
+    <Content Include="img\loader4_source.gif" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\LocatorIcon%4010x.png" />
+    <Content Include="img\LocatorIcon%402x.png" />
+    <Content Include="img\LocatorIcon%403x.png" />
+    <Content Include="img\LocatorIcon.png" />
+    <Content Include="img\LocatorLogo%4010x.png" />
+    <Content Include="img\LocatorLogo%402x.png" />
+    <Content Include="img\LocatorLogo%403x.png" />
+    <Content Include="img\LocatorLogo.png" />
+    <Content Include="img\Yellow OT Faded.png" />
+    <Content Include="img\Yellow OT.png" />
+    <Content Include="inline.aspx" />
+    <Content Include="js\bootstrap4-editable.js" />
+    <Content Include="js\JQuery.XDomainRequests.js" />
+    <Content Include="js\twittertypeahead.js" />
+    <Content Include="js\typeaheadjs.js" />
+    <Content Include="LocatorDefault.aspx" />
+    <Content Include="LocatorDemo.aspx" />
+    <Content Include="LocatorLogin.aspx" />
+    <Content Include="LocatorLogOut.aspx" />
+    <Content Include="DynamicLocatorOidc.aspx" />
+    <Content Include="LocatorSessionExpired.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="LocatorLoginOidc.aspx" />
+    <Content Include="LoginOidc.aspx" />
+    <Content Include="LogOut.aspx" />
+    <Content Include="ManageBeds.aspx" />
+    <Content Include="QustionService.js" />
+    <Content Include="Scripts\bootstrap-editable\js\bootstrap-editable.js" />
+    <Content Include="Scripts\bootstrap-editable\js\bootstrap-editable.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="Scripts\bootstrap3-editable\js\bootstrap-editable.min.js" />
+    <Content Include="Scripts\es5-shim.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\inputs-ext\address\address.js" />
+    <Content Include="Scripts\inputs-ext\typeaheadjs\lib\typeahead.js" />
+    <Content Include="Scripts\inputs-ext\typeaheadjs\typeaheadjs.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\bootstrap-wysihtml5-0.0.2.min.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\bootstrap-wysihtml5-0.0.2\wysihtml5-0.3.0.min.js" />
+    <Content Include="Scripts\inputs-ext\wysihtml5\wysihtml5.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-2.2.4.js" />
+    <Content Include="Scripts\jquery-editable\jquery-ui-datepicker\js\jquery-ui-1.10.3.custom.js" />
+    <Content Include="Scripts\jquery-editable\jquery-ui-datepicker\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Scripts\jquery-editable\js\jquery-editable-poshytip.js" />
+    <Content Include="Scripts\jquery-editable\js\jquery-editable-poshytip.min.js" />
+    <Content Include="Scripts\jquery.mockjax.js" />
+    <Content Include="Scripts\jquery.tablesorter.js" />
+    <Content Include="ListPreview.aspx" />
+    <Content Include="LocatorBoard.aspx" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\knockout-2.0.0rc.js" />
+    <Content Include="Scripts\oidc\callback.js" />
+    <Content Include="Scripts\oidc\oidc-client.js" />
+    <Content Include="Scripts\oidc\oidc-client.min.js" />
+    <Content Include="Scripts\oidc\OidcLoginHelper.js" />
+    <Content Include="Scripts\oidc\OidcPageHelper.js" />
+    <Content Include="Scripts\oidc\silent.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\stickyheader.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\IIS Test Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SynapseEBoardsV2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SynapseEBoardsV2 - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BedBoard.aspx" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="img\RNOHLogo.png" />
+    <Content Include="img\rnoh_alt.jpg" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\PublishProfiles\SynapseEBoards - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Scripts\jqueryui-editable\js\jqueryui-editable.js" />
+    <Content Include="Scripts\jqueryui-editable\js\jqueryui-editable.min.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
+    <Content Include="Scripts\knockout.x-editable.js" />
+    <Content Include="Scripts\knockout.x-editable.min.js" />
+    <Content Include="Scripts\ko-reactor.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\popper_bootstrap4.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ar.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_az.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_bg.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ca.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_cs.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_da.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_de.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_el.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_es.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_et.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_eu.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_fa.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_fi.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_fr.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_gl.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_he.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_hr.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_hu.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_id.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_is.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_it.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ja.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ka.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ko.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_lt.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_lv.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_mk.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ms.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_nb.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_nl.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_pl.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_pt-BR.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_pt-PT.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ro.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_rs.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ru.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_sk.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_sv.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_th.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_tr.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ua.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_ug-CN.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_uk.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_vi.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_zh-CN.js" />
+    <Content Include="Scripts\Select2-locales\select2_locale_zh-TW.js" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\typeahead.bundle.min.js" />
+    <Content Include="SessionExpired.aspx" />
+    <Content Include="SilentRenew.aspx" />
+    <Content Include="WardInformation.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BedBoard.aspx.cs">
+      <DependentUpon>BedBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BedBoard.aspx.designer.cs">
+      <DependentUpon>BedBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="locatorcallback.aspx.cs">
+      <DependentUpon>locatorcallback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="locatorcallback.aspx.designer.cs">
+      <DependentUpon>locatorcallback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="callback.aspx.cs">
+      <DependentUpon>callback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="callback.aspx.designer.cs">
+      <DependentUpon>callback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataServices.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoHomepage.aspx.cs">
+      <DependentUpon>DemoHomepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoHomepage.aspx.designer.cs">
+      <DependentUpon>DemoHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicBedBoard.aspx.cs">
+      <DependentUpon>DynamicBedBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicBedBoard.aspx.designer.cs">
+      <DependentUpon>DynamicBedBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicLocatorBoard.aspx.cs">
+      <DependentUpon>DynamicLocatorBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicLocatorBoard.aspx.designer.cs">
+      <DependentUpon>DynamicLocatorBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IMA.aspx.cs">
+      <DependentUpon>IMA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IMA.aspx.designer.cs">
+      <DependentUpon>IMA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IMADemo.aspx.cs">
+      <DependentUpon>IMADemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IMADemo.aspx.designer.cs">
+      <DependentUpon>IMADemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inline.aspx.cs">
+      <DependentUpon>inline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inline.aspx.designer.cs">
+      <DependentUpon>inline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListPreview.aspx.cs">
+      <DependentUpon>ListPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListPreview.aspx.designer.cs">
+      <DependentUpon>ListPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorBoard.aspx.cs">
+      <DependentUpon>LocatorBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorBoard.aspx.designer.cs">
+      <DependentUpon>LocatorBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorDefault.aspx.cs">
+      <DependentUpon>LocatorDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorDefault.aspx.designer.cs">
+      <DependentUpon>LocatorDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorDemo.aspx.cs">
+      <DependentUpon>LocatorDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorDemo.aspx.designer.cs">
+      <DependentUpon>LocatorDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorLogin.aspx.cs">
+      <DependentUpon>LocatorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorLogin.aspx.designer.cs">
+      <DependentUpon>LocatorLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorLogOut.aspx.cs">
+      <DependentUpon>LocatorLogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorLogOut.aspx.designer.cs">
+      <DependentUpon>LocatorLogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicLocatorOidc.aspx.cs">
+      <DependentUpon>DynamicLocatorOidc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicLocatorOidc.aspx.designer.cs">
+      <DependentUpon>DynamicLocatorOidc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorSessionExpired.aspx.cs">
+      <DependentUpon>LocatorSessionExpired.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorSessionExpired.aspx.designer.cs">
+      <DependentUpon>LocatorSessionExpired.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LocatorLoginOidc.aspx.cs">
+      <DependentUpon>LocatorLoginOidc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LocatorLoginOidc.aspx.designer.cs">
+      <DependentUpon>LocatorLoginOidc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginOidc.aspx.cs">
+      <DependentUpon>LoginOidc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginOidc.aspx.designer.cs">
+      <DependentUpon>LoginOidc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBeds.aspx.cs">
+      <DependentUpon>ManageBeds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageBeds.aspx.designer.cs">
+      <DependentUpon>ManageBeds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionExpired.aspx.cs">
+      <DependentUpon>SessionExpired.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionExpired.aspx.designer.cs">
+      <DependentUpon>SessionExpired.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SilentRenew.aspx.cs">
+      <DependentUpon>SilentRenew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SilentRenew.aspx.designer.cs">
+      <DependentUpon>SilentRenew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SynapseHelpers.cs" />
+    <Compile Include="WardInformation.aspx.cs">
+      <DependentUpon>WardInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WardInformation.aspx.designer.cs">
+      <DependentUpon>WardInformation.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58358</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57837/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

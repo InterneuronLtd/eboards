@@ -1,0 +1,45 @@
+<%--BEGIN LICENSE BLOCK--%> 
+<%--Interneuron Terminus
+
+Copyright(C) 2025  Interneuron Limited
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.If not, see<http://www.gnu.org/licenses/>. --%>
+<%--END LICENSE BLOCK--%> 
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="locatorcallback.aspx.cs" Inherits="EBoards.locatorcallback" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+     <script src="GlobalSettings.js?v=1.0000010"></script>
+    <script src="Scripts/oidc/oidc-client.js?v=1.0000010"></script>
+    <script src="Scripts/oidc/callback.js?v=1.0000010"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:HiddenField ID="hTkn" runat="server" />
+            Please wait...
+            <div style="display: none">
+                <asp:Button ID="btnPostback" runat="server" Text="" OnClick="btnPostback_Click" />
+            </div>
+           <div id="error"></div>
+        </div>
+    </form>
+</body>
+</html>
